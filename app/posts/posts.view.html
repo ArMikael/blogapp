@@ -1,0 +1,23 @@
+<tr ng-repeat="post in model.posts | orderBy : date | limitTo: 3">
+
+	<td>{{ post.titls }}</td>
+	<td>{{ post.author }}</td>
+	<td>{{ post.date | date:'MMMM dd, yyyy' }}</td>
+	<td>{{ post.tags }}</td>
+	<td>{{ post.description }}</td>
+	<td>{{ post.source | uppercase | buildUrl() to this-case-link  }}</td>
+
+
+
+	<div>{{ post.image }}</div>
+	<td>
+		<button class="btn btn-primary glyphicon glyphicon-edit"
+		ng-click="toggleEdit()">
+		</button>
+	</td>
+	<td>
+		<button class="btn btn-danger glyphicon glyphicon-trash"
+		ng-click="deleteEmployee($index)">
+		</button>
+	</td>
+</tr>

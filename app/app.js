@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 
-	var app = angular.module('Posts');
+	var app = angular.module('Blog');
 
 	app.controller('MainCtrl', ['$scope', '$http',
 		function($scope, $http){
@@ -12,4 +12,6 @@
 		}).error(function(data, status){
 			console.log('Error ' + status);
 		});
+
+	}]);
 }());
