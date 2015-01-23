@@ -3,8 +3,9 @@
 
 	var app = angular.module('Blog');
 
-	app.controller('PostsCtrl', ['$scope', '$http', '$routeParams' , '$location', 'postsData',
-		function ($scope, $http, $routeParams, $location, postsData){
+	app.controller('PostsCtrl', ['$scope', '$http', '$routeParams' , '$location',
+	 '$filter', 'postsData',
+	  function ($scope, $http, $routeParams, $location, $filter, postsData){
 
 			// blogapp/index.html#/posts/2?author=alex&tag=Grunt
 
@@ -21,6 +22,7 @@
 				.error(function (data, status){
 					console.log(status, data);
 				});
+
 
 	}]);
 
