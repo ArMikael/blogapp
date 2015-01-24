@@ -1,20 +1,9 @@
-<!-- Blog Entries Column -->
-<h1 class="page-header">All Posts</h1>
-	<!-- {{ postsData | filter : postsData.tags : "JavaScript" }} -->
-	<!-- {{ postsData.tags | checkTags }} -->
-	<!-- {{ postsData[0].tags | searchTag : JavaScript }} -->
-	<!-- {{ postsData[0] | filter:{ tags : JavaScript } }} -->
+<div ng-include="postSource"></div>
 
 <!-- Begin Post -->
-<article ng-repeat="post in postsData | limitTo: 3">
-<!-- | orderBy : post.date -->
+<article  class="page-header">
 	<header>
-		<h2>
-			<a href="{{ post.source }}">{{ post.title }}</a>
-			<!-- #/posts?author={{utils.cleanTitleLower(post.author)}} -->
-		</h2>
-		<!-- {{ post.tags.length | filter : 'JavaScript' }} -->
-		<!-- {{ post | filter:{tags:JavaScript } }} -->
+		<h1 class="page-header">{{ post.title }}</h1>
 
 		<p>
 			<small class="glyphicon glyphicon-user"></small>
@@ -28,7 +17,7 @@
 	<hr>
 
 	<figure>
-		<img class="img-responsive" ng-src="{{ post.image }}"
+		<img class="img-responsive" src="{{ post.image }}"
 			alt="">
 	</figure>
 	<hr>

@@ -23,7 +23,6 @@
 					console.log(status, data);
 				});
 
-
 	}]);
 
 	console.log('posts.controller');
