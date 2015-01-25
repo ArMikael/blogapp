@@ -10,8 +10,8 @@
 <!-- | orderBy : post.date -->
 	<header>
 		<h2>
-			<a href="#/posts/{{ post.title }}.html">{{ post.title }}</a>
-			<!-- #/posts?author={{utils.cleanTitleLower(post.author)}} -->
+			<a href="#/post/{{ post.title | replaceSpaces }}.html">{{ post.title }}</a>
+			<!-- <a href ng-click="PostsCtrl.cleanLink({post.title})">{{ post.title }}</a> -->
 		</h2>
 		<!-- {{ post.tags.length | filter : 'JavaScript' }} -->
 		<!-- {{ post | filter:{tags:JavaScript } }} -->

@@ -12,8 +12,8 @@
 				templateUrl : 'app/posts/posts.view.html',
 				controller : 'PostsCtrl'
 			})
-			.when('/posts/:title?',{
-				templateUrl: 'app/posts/single-post.view.html',
+			.when('/post/:title?',{
+				templateUrl: 'app/post/single-post.view.html',
 				controller: 'SinglePostCtrl'
 			})
 			.when('/admin', {

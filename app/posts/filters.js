@@ -1,15 +1,9 @@
-// angular.module('postsFilters', []).filter('checkTags', function() {
-// 	return function (input) {
-// 		return input ? '\u2713' : '\u2718';
-// 	};
-// });
-
 (function () {
 	'use strict';
 
 	var app = angular.module('Blog');
 
-		var tag = 0;
+	var tag = 0;
 
 	// Creating Custom filter to Angular
 	app.filter('searchTag', [function() {
@@ -35,5 +29,12 @@
 			// })
 		}
 	}]);
+
+	app.filter('replaceSpaces', function() {
+		return function(link){
+			var dashedLink = link.replace(/(\s|\W)/g, '-').toLowerCase();
+			return dashedLink.replace(/\-{2,}/g, '-');
+		}
+	});
 
 }());

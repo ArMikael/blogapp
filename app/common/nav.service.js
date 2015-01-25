@@ -3,10 +3,10 @@
 
 	var app = angular.module('Blog');
 
-	app.factory('navStates', function () {
-		return {
-			activeTab: null
-		};
-	})
+	// app.factory('navStates', function () {
+	// 	return {
+	// 		activeTab: null
+	// 	};
+	// })
 
 }());

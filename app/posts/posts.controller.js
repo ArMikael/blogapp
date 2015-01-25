@@ -23,8 +23,13 @@
 					console.log(status, data);
 				});
 
-	}]);
+			this.cleanLink = function (link) {
+				console.log(link);
 
-	console.log('posts.controller');
+				// Replacing spaces and punctuations with dashes in the links
+				return link.replace(/(\s|\W)/g, '-');
+			};
+
+	}]);
 
 }());
