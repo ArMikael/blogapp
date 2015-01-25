@@ -12,17 +12,13 @@
 				templateUrl : 'app/posts/posts.view.html',
 				controller : 'PostsCtrl'
 			})
-			.when('/posts/:page?', {
-				templateUrl : 'app/posts/post.view.html',
-				controller : 'PostsCtrl'
+			.when('/posts/:title?',{
+				templateUrl: 'app/posts/single-post.view.html',
+				controller: 'SinglePostCtrl'
 			})
 			.when('/admin', {
 				templateUrl : 'app/admin/admin.view.html',
 				controller : 'AdminCtrl'
-			})
-			.when('/post/:title?', {
-				templateUrl : 'app/posts/tags.view.html',
-				controller : 'SinglePostsCtrl'
 			})
 			// .when('/:author', {
 			// 	templateUrl : 'app/posts/authors.view.html',

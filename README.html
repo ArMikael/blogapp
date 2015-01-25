@@ -54,16 +54,18 @@
 <h4 id="posts-feed">Posts feed</h4>
 <ul>
 <li>Load all posts dynamically from <code>data/posts.json</code><ul>
+<li>Make sure the file is fetched only once</li>
 <li>Do not change the file contents</li>
 <li>Use each one of the given keys</li>
 <li>Notice the desired date format in the View</li>
+<li>Use an <code>ng-view</code> to load the posts list View</li>
 <li><strong>TBD</strong> - Missing posts description (use Lorem Ipsum for now)</li>
 <li><strong>TBD</strong> - Posts images are just placeholders</li>
 </ul>
 </li>
 <li>Show 3 posts at a time<ul>
-<li>Hide “Older” button (at the bottom) if showing the first batch of posts</li>
-<li>Hide “Newer” button (at the bottom) if showing the last batch of posts</li>
+<li>Hide “Newer” button (at the bottom) if showing the first batch of posts</li>
+<li>Hide “Older” button (at the bottom) if showing the last batch of posts</li>
 <li>Clicking “Newer” should remove the currently shown posts and load the next 3 posts.<ul>
 <li>URL - <code>#/posts/PAGE_NUMBER</code> (e.g. <code>2</code>)</li>
 </ul>
@@ -91,10 +93,15 @@
 </ul>
 </li>
 <li>Filter Posts<ul>
-<li>Data should be dynamic, initialized from <code>posts.json</code></li>
-<li>Each selected item should be set as Active (<code>active</code> class on the <code>a</code>)</li>
+<li>Items data should be dynamic, initialized from <code>posts.json</code></li>
+<li>Items should be ordered by highest number first</li>
+<li>The selected item should be set as Active (<code>active</code> class on the <code>a</code>)<ul>
+<li>There should be only 1 selected items on the Sidebar</li>
+</ul>
+</li>
 <li>Each item should have a badge indicating how many posts are attached to it (value inside the <code>span</code>)</li>
 <li>When clicked, should update the URL, which will trigger the filtering of the posts list to show only the posts that match that filter</li>
+<li>If a filter has more than 1 page, the page number should come before the filter query (e.g. <code>#/posts/2?author=alex-ilyaev</code>)</li>
 <li><strong>Show All Posts</strong><ul>
 <li>Same as “All Posts” in the top menu</li>
 <li>When selected, remove all filters from the URL and remove their <code>active</code> state in the Sidebar</li>
@@ -123,16 +130,12 @@
 </li>
 </ul>
 </li>
-<li>Several filters can be applied at once<ul>
-<li>e.g. <code>#/posts?author=alex-ilyaev&amp;category=grunt</code></li>
-</ul>
-</li>
-<li>If a filter has more than 1 page, the page number should come before the filter query (e.g. <code>#/posts/2?author=alex-ilyaev</code>)</li>
 </ul>
 </li>
 </ul>
 <h3 id="single-post-view">Single Post View</h3>
 <ul>
+<li><code>post.html</code> is only for reference, the post content sohuld be loaded as a seperate view using <code>ng-view</code></li>
 <li>Should show the full post</li>
 <li>Menu and Sidebar stay the same</li>
 <li>The content body should be loaded from the relevant <code>html</code> file (<code>source</code> path in <code>posts.json</code>)</li>

@@ -3,7 +3,7 @@
 
 	var app = angular.module('Blog');
 
-	app.controller('SinglePostsCtrl', ['$scope', '$routeParams', 'postsData',
+	app.controller('SinglePostCtrl', ['$scope', '$routeParams', 'postsData',
 		'dataService', 'navStates'
 		function ($scope, $routeParams, postsData, dataService, navStates){
 			console.log('SinglePostsCtrl');
