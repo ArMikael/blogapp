@@ -6,8 +6,8 @@
 	<!-- {{ postsData[0] | filter:{ tags : JavaScript } }} -->
 
 <!-- Begin Post -->
-<article ng-repeat="post in postsData | limitFrom : firstPost | limitTo: 3">
-<!-- | orderBy : post.date -->
+<article ng-repeat="post in postsData | limitFromTo : firstPost ">
+<!-- | limitTo: 3 | orderBy : post.date -->
 	<header>
 		<h2>
 			<a href="#/post/{{ post.title | replaceSpaces }}.html">{{ post.title }}</a>

@@ -5,7 +5,7 @@
 
 	var tag = 0;
 
-	// Creating Custom filter to Angular
+	// Creating Custom filter
 	app.filter('searchTag', [function() {
 
 		return function (arr, searchText) {
@@ -37,10 +37,10 @@
 		}
 	});
 
-	app.filter('limitFrom', function() {
-	    return function(input, index) {
-	        // start the postsData array at the index point
-	        return input.slice(index);
+	app.filter('limitFromTo', function() {
+	    return function (input, index) {
+	    	// Slicing 3 posts from provided start point (index)
+       		return input.slice(index, index + 3);
 	    };
 	});
 
