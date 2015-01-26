@@ -23,11 +23,31 @@
 					console.log(status, data);
 				});
 
-			this.cleanLink = function (link) {
+			$scope.cleanLink = function (link) {
 				console.log(link);
 
 				// Replacing spaces and punctuations with dashes in the links
 				return link.replace(/(\s|\W)/g, '-');
+			};
+
+
+			$scope.firstPost = 0;
+
+			$scope.olderPosts = function() {
+				if ($scope.postsData.length > ($scope.firstPost + 3)){
+					$scope.firstPost += 3;
+					$scope.hideMe = false;
+				} else {
+					return $scope.hideButton = true;
+				}
+			};
+
+			$scope.newerPosts = function(){
+				if (0 < $scope.firstPost) {
+					$scope.firstPost -= 3;
+					// $scope.firstPost;
+					$scope.hideButton = false;
+				}
 			};
 
 	}]);

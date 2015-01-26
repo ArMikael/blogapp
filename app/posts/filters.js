@@ -33,8 +33,15 @@
 	app.filter('replaceSpaces', function() {
 		return function(link){
 			var dashedLink = link.replace(/(\s|\W)/g, '-').toLowerCase();
-			return dashedLink.replace(/\-{2,}/g, '-');
+			return dashedLink.replace(/\-{2,3}/g, '-');
 		}
+	});
+
+	app.filter('limitFrom', function() {
+	    return function(input, index) {
+	        // start the postsData array at the index point
+	        return input.slice(index);
+	    };
 	});
 
 }());
