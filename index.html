@@ -80,7 +80,7 @@
 				</div>
 
 				<!-- Blog Categories Well -->
-				<div class="well">
+				<div class="well" ng-controller="PostsCtrl">
 					<h3>Filter Posts</h3>
 
 					<div class="list-group">
@@ -92,6 +92,13 @@
 
 					<h4><small class="glyphicon glyphicon-tag"></small> Category</h4>
 					<div class="list-group">
+						<a href="#" class="list-group-item" ng-repeat="tag in postsData.tags">
+							<span class="badge">6</span>
+							{{tag}}
+						</a>
+					</div>
+
+			<!-- 		<div class="list-group">
 						<a href="#" class="list-group-item">
 							<span class="badge">6</span>
 							JavaScript
@@ -112,7 +119,7 @@
 							<span class="badge">2</span>
 							jQuery
 						</a>
-					</div>
+					</div> -->
 
 					<h4><small class="glyphicon glyphicon-user"></small> Author</h4>
 					<div class="list-group">

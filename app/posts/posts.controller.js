@@ -14,15 +14,16 @@
 			console.log($location.path()); // "/posts/2"
 			console.log($location.search()); // Object { author: "alex", tag: "Grunt" }
 
-			var authorsArr = [];
-			var tagsArr = [];
-			var datesArr = [];
-
 			postsData
 				.success(function (data, status) {
+					var authorsArr = [];
+					var tagsArr = [];
+					var datesArr = [];
+
 					$scope.postsData = data.posts;
+
 					// $scope.authors = data.posts.authors;
-					$scope.authors = $.each(data.posts, function (index, post) {
+					$.each(data.posts, function (index, post) {
 
 						authorsArr.push(post.author);
 
@@ -34,6 +35,10 @@
 
 					});
 
+					$scope.authors = authorsArr;
+					$scope.dates = datesArr;
+					$scope.tags = tagsArr;
+
 					console.log(authorsArr);
 					console.log(tagsArr);
 					console.log(datesArr);
@@ -43,15 +48,15 @@
 					console.log(status, data);
 				});
 
-			var countAuthors = function (authorsArr) {
-				$.each(authorsArr, function (index, author) {
-					console.log('Heelloo!');
-				});
+			// var countAuthors = function (authorsArr) {
+			// 	$.each(authorsArr, function (index, author) {
+			// 		console.log('Heelloo!');
+			// 	});
 
-				return author + " : " + key;
-			};
+			// 	return author + " : " + key;
+			// };
 
-			countAuthors(authorsArr);
+			// countAuthors(authorsArr);
 
 
 
