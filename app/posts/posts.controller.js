@@ -14,21 +14,53 @@
 			console.log($location.path()); // "/posts/2"
 			console.log($location.search()); // Object { author: "alex", tag: "Grunt" }
 
+			var authorsArr = [];
+			var tagsArr = [];
+			var datesArr = [];
+
 			postsData
-				.success(function (data, status){
+				.success(function (data, status) {
 					$scope.postsData = data.posts;
-					$scope.source = data.posts[4]; // To put URL from JSON
+					// $scope.authors = data.posts.authors;
+					$scope.authors = $.each(data.posts, function (index, post) {
+
+						authorsArr.push(post.author);
+
+						datesArr.push(post.date)
+
+						$.each(post.tags, function (index, tag) {
+							tagsArr.push(tag);
+						});
+
+					});
+
+					console.log(authorsArr);
+					console.log(tagsArr);
+					console.log(datesArr);
+
 				})
 				.error(function (data, status){
 					console.log(status, data);
 				});
 
-			$scope.cleanLink = function (link) {
-				console.log(link);
+			var countAuthors = function (authorsArr) {
+				$.each(authorsArr, function (index, author) {
+					console.log('Heelloo!');
+				});
 
-				// Replacing spaces and punctuations with dashes in the links
-				return link.replace(/(\s|\W)/g, '-');
+				return author + " : " + key;
 			};
+
+			countAuthors(authorsArr);
+
+
+
+			// $scope.cleanLink = function (link) {
+			// 	console.log(link);
+
+			// 	// Replacing spaces and punctuations with dashes in the links
+			// 	return link.replace(/(\s|\W)/g, '-');
+			// };
 
 
 			$scope.firstPost = 0;
@@ -36,7 +68,7 @@
 			$scope.olderPosts = function() {
 				if ($scope.postsData.length > ($scope.firstPost + 3)){
 					$scope.firstPost += 3;
-					$scope.hideMe = false;
+					$scope.hideButton = false;
 				} else {
 					return $scope.hideButton = true;
 				}
@@ -45,10 +77,28 @@
 			$scope.newerPosts = function(){
 				if (0 < $scope.firstPost) {
 					$scope.firstPost -= 3;
-					// $scope.firstPost;
 					$scope.hideButton = false;
 				}
 			};
+
+			// $scope.countTags = function () {
+			// 	var tags = {
+			// 		javascript: 6
+			// 	};
+
+			// 	var tags = [{
+			// 		name: 'javascript',
+			// 		count: 6
+			// 	}];
+			// };
+
+			// <div class="list-group">
+			// 	<a href="#" class="list-group-item"
+			// 	ng-repeat=" tag in tags | orderBy: 'tags'">
+			// 		<span class="badge">{{count}}</span>
+			// 		{{name}}
+			// 	</a>
+			// </div>
 
 	}]);
 

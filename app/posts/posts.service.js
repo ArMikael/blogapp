@@ -3,7 +3,7 @@
 
 	var app = angular.module('Blog');
 
-	app.factory('postsData', [ '$http', function ($http){
+	app.factory('postsData', [ '$http', function ($http) {
 		// var postsData = null;
 
 		// Ajax request to the posts.json
