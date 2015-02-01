@@ -6,7 +6,7 @@
 	<!-- {{ postsData[0] | filter:{ tags : JavaScript } }} -->
 
 <!-- Begin Post -->
-<article ng-repeat="post in postsData | limitFromTo : firstPost ">
+<article ng-repeat="post in postsData | limitFromTo : firstPost | filter : searchText ">
 <!-- | limitTo: 3 | orderBy : post.date -->
 	<header>
 		<h2>

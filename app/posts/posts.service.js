@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 
-	var app = angular.module('Blog');
+	var app = angular.module('BlogApp');
 
 	app.factory('postsData', [ '$http', function ($http) {
 		// var postsData = null;

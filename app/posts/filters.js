@@ -1,13 +1,12 @@
 (function () {
 	'use strict';
 
-	var app = angular.module('Blog');
+	var app = angular.module('BlogApp');
 
 	var tag = 0;
 
 	// Creating Custom filter
-	app.filter('searchTag', [function() {
-
+	app.filter('searchTag', function () {
 		return function (arr, searchText) {
 			console.log(arr);
 			console.log(searchText);
@@ -28,7 +27,7 @@
 			// 	console.log(item);
 			// })
 		}
-	}]);
+	});
 
 	app.filter('replaceSpaces', function() {
 		return function(link){

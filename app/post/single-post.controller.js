@@ -1,10 +1,10 @@
 (function () {
 	'use strict';
 
-	var app = angular.module('Blog');
+	var app = angular.module('BlogApp');
 
 	app.controller('SinglePostCtrl', ['$scope', '$routeParams', 'postsData',
-		function ($scope, $routeParams, postsData){
+		function ($scope, $routeParams, postsData) {
 			console.log($routeParams);
 			console.log(postsData);
 

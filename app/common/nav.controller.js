@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 
-	var app = angular.module('Blog');
+	var app = angular.module('BlogApp');
 
 	app.controller("NavCtrl", function () {
 		this.tab = 1;
