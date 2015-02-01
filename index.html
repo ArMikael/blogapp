@@ -92,7 +92,7 @@
 
 					<h4><small class="glyphicon glyphicon-tag"></small> Category</h4>
 					<div class="list-group">
-						<a href="#" class="list-group-item" ng-repeat="tag in tags">
+						<a href="#/posts?category={{tag.name | lowercase}}" class="list-group-item" ng-repeat="tag in tags">
 							<span class="badge">{{tag.count}}</span>
 							{{tag.name}}
 						</a>
@@ -100,7 +100,7 @@
 
 					<h4><small class="glyphicon glyphicon-user"></small> Author</h4>
 					<div class="list-group">
-						<a href="#" class="list-group-item" ng-repeat="author in authors">
+						<a href="#/posts?author={{author.name | lowercase | replaceSpaces}}" class="list-group-item" ng-repeat="author in authors">
 							<span class="badge">{{author.count}}</span>
 							{{author.name}}
 						</a>
@@ -112,7 +112,7 @@
 							<span href="#" class="list-group-item disabled">
 								{{year.name}}
 							</span>
-							<a href="#" class="list-group-item" ng-repeat="date in dates">
+							<a href="#/posts?month={{date.name | date: 'MMM-yyyy' | lowercase | replaceSpaces}}" class="list-group-item" ng-repeat="date in dates">
 								<span class="badge">{{date.count}}</span>
 								{{date.name | date:'MMMM' | filter:year.name}}
 							</a>
