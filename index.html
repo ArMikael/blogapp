@@ -69,7 +69,7 @@
 				<div class="well">
 					<h4>Search</h4>
 					<div class="input-group">
-						<input type="text" class="form-control" ng-model="searchText">
+						<input type="text" class="form-control" ng-model="query">
 						<span class="input-group-btn">
 							<button class="btn btn-default" type="button">
 								<span class="glyphicon glyphicon-search"></span>
@@ -85,7 +85,7 @@
 
 					<div class="list-group">
 						<a href="#" class="list-group-item active">
-							<span class="badge">8</span>
+							<span class="badge">{{postsData.length}}</span>
 							Show All Posts
 						</a>
 					</div>

@@ -1,24 +1,20 @@
 <!-- Blog Entries Column -->
 <h1 class="page-header">All Posts</h1>
-	<!-- {{ postsData | filter : postsData.tags : "JavaScript" }} -->
-	<!-- {{ postsData.tags | checkTags }} -->
-	<!-- {{ postsData[0].tags | searchTag : JavaScript }} -->
-	<!-- {{ postsData[0] | filter:{ tags : JavaScript } }} -->
 
 <!-- Begin Post -->
-<article ng-repeat="post in postsData | limitFromTo : firstPost | filter : searchText ">
+<article ng-repeat="post in postsData | limitFromTo : firstPost | filter : query ">
 <!-- | limitTo: 3 | orderBy : post.date -->
 	<header>
 		<h2>
-			<a href="#/post/{{ post.title | replaceSpaces }}.html">{{ post.title }}</a>
+			<a href="#/post/{{post.title | replaceSpaces }}.html">{{ post.title }}</a>
 			<!-- <a href ng-click="PostsCtrl.cleanLink({post.title})">{{ post.title }}</a> -->
 		</h2>
-		<!-- {{ post.tags.length | filter : 'JavaScript' }} -->
-		<!-- {{ post | filter:{tags:JavaScript } }} -->
 
 		<p>
 			<small class="glyphicon glyphicon-user"></small>
-			by <a href="#">{{ post.author }}</a>
+			by <a href="#/posts?author={{post.author | lowercase | replaceSpaces}}">
+				{{ post.author }}
+			</a>
 		</p>
 		<p>
 			<small class="glyphicon glyphicon-time"></small>
@@ -41,7 +37,7 @@
 		<p class="pull-left">
 			<b>Tags:&nbsp;</b>
 			<span ng-repeat="tag in post.tags">
-				<a href="#" class="label label-default">{{ tag }}</a>
+				<a href="#/posts?category={{tag | lowercase}}" class="label label-default">{{ tag }}</a>
 			</span>
 		</p>
 
