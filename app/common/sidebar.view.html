@@ -1,0 +1,62 @@
+<!-- Blog Sidebar Widgets Column -->
+<aside class="col-md-4" ng-controller="SideBarCtrl as sidebar">
+
+	<!-- Blog Search Well -->
+	<div class="well">
+		<h4>Search</h4>
+		<div class="input-group">
+			<input type="text" class="form-control" ng-model="query">
+			<span class="input-group-btn">
+				<button class="btn btn-default" type="button"
+				ng-click="#/posts?search={{query}}">
+					<span class="glyphicon glyphicon-search"></span>
+				</button>
+			</span>
+		</div>
+		<!-- /.input-group -->
+	</div>
+
+	<!-- Blog Categories Well -->
+	<div class="well">
+		<h3>Filter Posts</h3>
+
+		<div class="list-group">
+			<a href="#" class="list-group-item active">
+				<span class="badge">{{postsData.length}}</span>
+				Show All Posts
+			</a>
+		</div>
+
+		<h4><small class="glyphicon glyphicon-tag"></small> Category</h4>
+		<div class="list-group">
+			<a href="#/posts?category={{tag.name | lowercase}}" class="list-group-item"
+			ng-repeat="tag in tags">
+				<span class="badge">{{tag.count}}</span>
+				{{tag.name}}
+			</a>
+		</div>
+
+		<h4><small class="glyphicon glyphicon-user"></small> Author</h4>
+		<div class="list-group">
+			<a href="#/posts?author={{author.name | lowercase | replaceSpaces}}"
+			class="list-group-item" ng-repeat="author in authors">
+				<span class="badge">{{author.count}}</span>
+				{{author.name}}
+			</a>
+		</div>
+
+		<h4><small class="glyphicon glyphicon-time"></small> Month</h4>
+		<div class="list-group">
+			<div ng-repeat="year in years">
+				<span href="#" class="list-group-item disabled">
+					{{year.name}}
+				</span>
+				<a href="#/posts?month={{date.name | date: 'MMM-yyyy' | lowercase |
+				replaceSpaces}}" class="list-group-item" ng-repeat="date in dates">
+					<span class="badge">{{date.count}}</span>
+					{{date.name | date:'MMMM' | filter:year.name}}
+				</a>
+			</div>
+		</div>
+	</div>
+</aside>

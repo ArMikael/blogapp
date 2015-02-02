@@ -1,4 +1,4 @@
-<div ng-include="postSource"></div>
+<!-- <div ng-include="postSource"></div> -->
 
 <!-- Begin Post -->
 <article  class="page-header">
@@ -7,7 +7,7 @@
 
 		<p>
 			<small class="glyphicon glyphicon-user"></small>
-			by <a href="#">{{ post.author }}</a>
+			by <a href="#/posts?author={{post.author | lowercase }}">{{ post.author }}</a>
 		</p>
 		<p>
 			<small class="glyphicon glyphicon-time"></small>
@@ -30,7 +30,7 @@
 		<p class="pull-left">
 			<b>Tags:&nbsp;</b>
 			<span ng-repeat="tag in post.tags">
-				<a href="#" class="label label-default">{{ tag }}</a>
+				<a href="#/posts?category={{tag | lowercase}}" class="label label-default">{{ tag }}</a>
 			</span>
 		</p>
 
