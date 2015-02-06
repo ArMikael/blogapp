@@ -5,6 +5,21 @@
 
 	app.controller('SideBarCtrl', ['$scope', '$routeParams', '$filter', 'postsData',
 		function ($scope, $routeParams, $filter, postsData) {
+
+			// Adding Active class to current filter
+			this.filter = 1;
+
+			this.setFilter = function (activeFilter) {
+				this.filter = activeFilter;
+				console.log('set filter', activeFilter);
+			};
+
+			this.checkFilter = function (ckeckedFilter) {
+				return this.filter === ckeckedFilter;
+			};
+
+
+			// Ajax Request for all sidebar tags from JSON
 			postsData.success(function (data, status) {
 				$scope.postsData = data.posts;
 
