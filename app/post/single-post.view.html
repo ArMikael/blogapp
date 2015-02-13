@@ -1,97 +1,67 @@
-<!-- <div ng-include="postSource"></div> -->
-
 <!-- Begin Post -->
-<article  class="page-header">
-	<header>
-		<h1 class="page-header">{{ post.title }}</h1>
+<section class="col-md-8">
+	<article  class="page-header">
+		<header>
+			<h1 class="page-header">{{ post.title }}</h1>
 
-		<p>
-			<small class="glyphicon glyphicon-user"></small>
-			by <a href="#/posts?author={{post.author | lowercase }}">{{ post.author }}</a>
-		</p>
-		<p>
-			<small class="glyphicon glyphicon-time"></small>
-			Posted on {{ post.date | date:'dd MMM, yyyy' }}
-		</p>
-	</header>
+			<p>
+				<small class="glyphicon glyphicon-user"></small>
+				by <a href="#/posts?author={{ post.author | lowercase }}">{{ post.author }}</a>
+			</p>
+			<p>
+				<small class="glyphicon glyphicon-time"></small>
+				Posted on {{ post.date | date:'dd MMM, yyyy' }}
+			</p>
+		</header>
+		<br>
+		<!-- Post Description -->
+		<div ng-include src="'./' + post.htmlPath"></div>
+	</article>
+
 	<hr>
+	<!-- End of Post -->
 
-	<figure>
-		<img class="img-responsive" src="{{ post.image }}"
-			alt="">
-	</figure>
+
+	<!-- Blog Comments -->
+
+	<!-- Comments Form -->
+	<div class="well">
+		<h4>Leave a Comment:</h4>
+		<form role="form">
+			<div class="form-group">
+				<textarea class="form-control" rows="3"></textarea>
+			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+
 	<hr>
+	<!-- Posted Comments -->
 
-	<!-- Post Description -->
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur quis debitis suscipit assumenda unde possimus, culpa voluptatum ducimus delectus, recusandae fuga eaque porro nam fugiat vel, illo reiciendis corporis quae?</p>
-	<br>
-
-	<footer class="clearfix">
-		<p class="pull-left">
-			<b>Tags:&nbsp;</b>
-			<span ng-repeat="tag in post.tags">
-				<a href="#/posts?category={{tag | lowercase}}" class="label label-default">{{ tag }}</a>
-			</span>
-		</p>
-
-		<a class="btn btn-primary pull-right" href="post.html">
-			Read More <i class="glyphicon glyphicon-chevron-right"></i>
+	<!-- Comment -->
+	<div class="media">
+		<a class="pull-left" href="#">
+			<img class="media-object" src="http://placehold.it/64x64" alt="">
 		</a>
-	</footer>
-</article>
-<hr>
-<!-- End of Post -->
-
-
-<!-- Pager -->
-<ul class="pager">
-	<li class="previous">
-		<a href="#">&larr; Older</a>
-	</li>
-	<li class="next">
-		<a href="#">Newer &rarr;</a>
-	</li>
-</ul>
-
-<!-- Blog Comments -->
-
-<!-- Comments Form -->
-<div class="well">
-	<h4>Leave a Comment:</h4>
-	<form role="form">
-		<div class="form-group">
-			<textarea class="form-control" rows="3"></textarea>
+		<div class="media-body">
+			<h4 class="media-heading">Some User
+				<small>14 Jan, 2015</small>
+			</h4>
+			<p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
 		</div>
-		<button type="submit" class="btn btn-primary">Submit</button>
-	</form>
-</div>
-
-<hr>
-<!-- Posted Comments -->
-
-<!-- Comment -->
-<div class="media">
-	<a class="pull-left" href="#">
-		<img class="media-object" src="http://placehold.it/64x64" alt="">
-	</a>
-	<div class="media-body">
-		<h4 class="media-heading">Some User
-			<small>14 Jan, 2015</small>
-		</h4>
-		<p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
 	</div>
-</div>
-<hr>
+	<hr>
 
-<!-- Comment -->
-<div class="media">
-	<a class="pull-left" href="#">
-		<img class="media-object" src="http://placehold.it/64x64" alt="">
-	</a>
-	<div class="media-body">
-		<h4 class="media-heading">Some User
-			<small>14 Jan, 2015</small>
-		</h4>
-		<p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+	<!-- Comment -->
+	<div class="media">
+		<a class="pull-left" href="#">
+			<img class="media-object" src="http://placehold.it/64x64" alt="">
+		</a>
+		<div class="media-body">
+			<h4 class="media-heading">Some User
+				<small>14 Jan, 2015</small>
+			</h4>
+			<p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+		</div>
 	</div>
-</div>
+</section>

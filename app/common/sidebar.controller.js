@@ -3,11 +3,10 @@
 
 	var app = angular.module('BlogApp');
 
-	app.controller('SideBarCtrl', ['$scope', '$routeParams', '$filter', 'postsData',
-		function ($scope, $routeParams, $filter, postsData) {
+	app.controller('SideBarCtrl', ['$scope', '$routeParams', '$location', '$filter', 'dataService',
+		function ($scope, $routeParams, $location, $filter, dataService) {
 
 			// Adding Active class to current filter
-			this.filter = 1;
 
 			this.setFilter = function (activeFilter) {
 				this.filter = activeFilter;
@@ -20,8 +19,9 @@
 
 
 			// Ajax Request for all sidebar tags from JSON
-			postsData.success(function (data, status) {
-				$scope.postsData = data.posts;
+			dataService.get()
+				.success(function (data, status) {
+					$scope.postsData = data.posts;
 
 				var authorsArr = [],
 					tagsArr = [],
@@ -114,6 +114,19 @@
 			.error(function(data , status){
 				console.erorr(status, data);
 			});
+
+			// Search bar functionality
+			$scope.search = function (query) {
+				$location.search('');
+				$location.search('search', query);
+			};
+
+			var queryParams = $location.search();
+			console.log('queryParams', queryParams);
+
+			if (queryParams.search) {
+				return $filter('filter')(postsData, queryParams.search);
+			}
 
 	}]);
 }());

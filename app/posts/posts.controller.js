@@ -3,9 +3,9 @@
 
 	var app = angular.module('BlogApp');
 
-	app.controller('PostsCtrl', ['$scope', '$http', '$routeParams' , '$location',
-		'$filter', 'postsData',
-		function ($scope, $http, $routeParams, $location, $filter, postsData){
+	app.controller('PostsCtrl', ['$scope', '$http', '$routeParams', '$location',
+		'$filter', 'dataService',
+		function ($scope, $http, $routeParams, $location, $filter, dataService) {
 
 			// blogapp/index.html#/posts/2?author=alex&tag=Grunt
 
@@ -14,22 +14,16 @@
 			console.log($location.path()); // "/posts/2"
 			console.log($location.search()); // Object { author: "alex", tag: "Grunt" }
 
-			postsData
+			dataService.get()
 				.success(function (data, status) {
 					$scope.postsData = data.posts;
+					// $scope.posts = data.data.posts;
+					console.log('$scope.postsData', $scope.postsData);
+					console.log('$scope.posts', $scope.posts);
 				})
 				.error(function (data, status){
 					console.log(status, data);
 				});
-
-
-			// $scope.cleanLink = function (link) {
-			// 	console.log(link);
-
-			// 	// Replacing spaces and punctuations with dashes in the links
-			// 	return link.replace(/(\s|\W)/g, '-');
-			// };
-
 
 			$scope.firstPost = 0;
 

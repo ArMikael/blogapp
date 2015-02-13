@@ -3,8 +3,6 @@
 
 	var app = angular.module('BlogApp');
 
-	var tag = 0;
-
 	app.filter('replaceSpaces', function() {
 		return function(link){
 			var dashedLink = link.replace(/(\s|\W)/g, '-').toLowerCase();

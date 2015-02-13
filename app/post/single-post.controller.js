@@ -2,39 +2,33 @@
 	'use strict';
 
 	var app = angular.module('BlogApp');
+	// , ['ngSanitize']
 
-	app.controller('SinglePostCtrl', ['$scope', '$routeParams', 'postsData',
-		function ($scope, $routeParams, postsData) {
+	app.controller('SinglePostCtrl', ['$scope', '$routeParams', 'dataService',
+		function ($scope, $routeParams, dataService) {
 			console.log('$routeParams from SinglePostCtrl', $routeParams);
-			console.log(postsData);
+			console.log('dataService', dataService);
+			console.log('$routeParams.title', $routeParams.title);
 
-			postsData.success(function (data, status) {
+			//Get the data from posts.json
+			$scope.postTitle = $routeParams.title;
 
-				// initialize the scope with the JSON data object
-				$scope.postsData = data.posts;
-
-				for (var post in $scope.postsData) {
-
-					if ($scope.postsData.hasOwnProperty(post)) {
-
-						var postTitle = $scope.postsData[post].title;
-						console.log('postTitle before cleaning', postTitle);
-						console.log(replaceSpaces(postTitle));
-
-						if (postTitle === $routeParams.title){
-
-							$scope.post = $scope.postsData[post];
-						}
-					}
-				}
-
-			})
-			.error(function (data , status) {
-				console.erorr(status, data);
+			$scope.post = dataService.get($scope.postTitle).then(function (data) {
+				$scope.post = data;
+				console.log('$scope.post', $scope.post);
 			});
 
+			// $scope.utils = utils;
 
-			// $scope.post = dataService.get($routeParams.title);
+			// $scope.post = dataService.get()
+			// 	.success(function (post) {
+			// 		$http.get(post.htmlPath)
+			// 		    .success(function (data) {
+			// 		        $scope.postHtml = $sanitize(data);
+			// 		    });
+			// 	});
+
+
 	}]);
 
 }());
