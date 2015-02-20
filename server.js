@@ -16,7 +16,7 @@ var usersPath = require('./modules/data');
 // Init a new Express app instance
 var app = express();
 // Set the app port (used at the end with `listen`)
-app.set('port', 3000);
+app.set('port', process.env.PORT || 3000);
 
 /**
  * Define Middleware handlers
@@ -39,7 +39,7 @@ app.get('/', function (req, res) {
 });
 
 // Handle POST request to save a new user data
-app.post('/users', function (req, res) {
+app.post('/data/posts.json', function (req, res) {
 	console.log(req.method, req.path, req.body);
 
 	// Read existing data
@@ -65,7 +65,9 @@ app.post('/users', function (req, res) {
 });
 
 // Handle GET request to get all users data
-app.get('/users', function (req, res) {
+app.get('/data/posts.json', function (req, res) {
+
+	console.log(req.method, req.path, req.body);
 	// Get all users data
 	fs.readFile(usersPath, function (err, data) {
 		if (err) {
@@ -85,4 +87,4 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Start the server at a specific port
 app.listen(app.get('port'));
 
-console.log('Listening on: http://localhost:3000');
+console.log('Listening on: http://localhost:', app.get('port'));
