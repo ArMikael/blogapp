@@ -39,7 +39,7 @@ app.get('/', function (req, res) {
 });
 
 // Handle POST request to save a new user data
-app.post('/data/posts.json', function (req, res) {
+app.post('/users', function (req, res) {
 	console.log(req.method, req.path, req.body);
 
 	// Read existing data
@@ -65,9 +65,7 @@ app.post('/data/posts.json', function (req, res) {
 });
 
 // Handle GET request to get all users data
-app.get('/data/posts.json', function (req, res) {
-
-	console.log(req.method, req.path, req.body);
+app.get('/users', function (req, res) {
 	// Get all users data
 	fs.readFile(usersPath, function (err, data) {
 		if (err) {
