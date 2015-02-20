@@ -32,6 +32,16 @@
 		</thead>
 
 		<tbody>
+			<tr ng-repeat="post in postsData">
+				<th scope="row">{{$id + 1}}</th>
+			<!-- 	<th scope="row">{{$index + 1}}</th>
+				<td>{{post.title}}</td>
+				<td>{{post.author}}</td>
+				<td>{{post.date | date: mediumDate}}</td> -->
+			</tr>
+		</tbody>
+
+		<tbody>
 			<tr>
 				<th scope="row">1</th>
 				<td>AngularJS - Controllers</td>

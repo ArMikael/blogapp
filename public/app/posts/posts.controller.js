@@ -17,9 +17,7 @@
 			dataService.get()
 				.success(function (data, status) {
 					$scope.postsData = data.posts;
-					// $scope.posts = data.data.posts;
 					console.log('$scope.postsData', $scope.postsData);
-					console.log('$scope.posts', $scope.posts);
 				})
 				.error(function (data, status){
 					console.log(status, data);

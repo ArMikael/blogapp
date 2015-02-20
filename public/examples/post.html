@@ -9,10 +9,11 @@
 	<title>Real-Time Blog App</title>
 
 	<!-- Bootstrap Core CSS -->
-	<link rel="stylesheet" href="lib/css/bootstrap.min.css">
-	<link rel="stylesheet" href="lib/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="../lib/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../lib/css/bootstrap-theme.min.css">
+
 	<!-- Custom CSS -->
-	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="../css/main.css">
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -25,7 +26,9 @@
 <body>
 	<!-- Navigation -->
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
 		<div class="container">
+
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -37,11 +40,12 @@
 				</button>
 				<a class="navbar-brand" href="#/">Netcraft Academy</a>
 			</div>
+
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li class="active">
-						<a href="#/posts">All Posts</a>
+						<a href="#/posts">Posts</a>
 					</li>
 					<li>
 						<a href="#/admin">Admin</a>
@@ -49,6 +53,7 @@
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
+
 		</div>
 		<!-- /.container -->
 	</nav>
@@ -76,16 +81,14 @@
 						</p>
 						<p>
 							<b>Tags:&nbsp;</b>
-							<a href="#" class="label label-default">JavaScript</a>
-							<a href="#" class="label label-default">AngularJS</a>
+							<span>
+								<a href="#" class="label label-default">JavaScript</a>
+							</span>
+							<span>
+								<a href="#" class="label label-default">AngularJS</a>
+							</span>
 						</p>
 					</header>
-					<hr>
-
-					<figure>
-						<img class="img-responsive" src="http://placehold.it/900x300"
-							alt="">
-					</figure>
 					<hr>
 
 					<!-- Post Content -->
@@ -377,15 +380,18 @@ console.log(strObject.str);
 				<!-- Blog Search Well -->
 				<div class="well">
 					<h4>Search</h4>
-					<div class="input-group">
-						<input type="text" class="form-control">
-						<span class="input-group-btn">
-							<button class="btn btn-default" type="button">
-								<span class="glyphicon glyphicon-search"></span>
-						</button>
-						</span>
-					</div>
-					<!-- /.input-group -->
+
+					<form>
+						<div class="input-group">
+							<input type="search" name="search" class="form-control">
+							<span class="input-group-btn">
+								<button class="btn btn-default" type="submit">
+									<span class="glyphicon glyphicon-search"></span>
+								</button>
+							</span>
+						</div>
+						<!-- /.input-group -->
+					</form>
 				</div>
 
 				<!-- Blog Categories Well -->
@@ -402,10 +408,6 @@ console.log(strObject.str);
 					<h4><small class="glyphicon glyphicon-tag"></small> Category</h4>
 					<div class="list-group">
 						<a href="#" class="list-group-item">
-							<span class="badge">6</span>
-							JavaScript
-						</a>
-						<a href="#" class="list-group-item">
 							<span class="badge">4</span>
 							AngularJS
 						</a>
@@ -414,21 +416,21 @@ console.log(strObject.str);
 							Grunt
 						</a>
 						<a href="#" class="list-group-item">
-							<span class="badge">2</span>
-							Tools
+							<span class="badge">6</span>
+							JavaScript
 						</a>
 						<a href="#" class="list-group-item">
 							<span class="badge">2</span>
 							jQuery
 						</a>
+						<a href="#" class="list-group-item">
+							<span class="badge">2</span>
+							Tools
+						</a>
 					</div>
 
 					<h4><small class="glyphicon glyphicon-user"></small> Author</h4>
 					<div class="list-group">
-						<a href="#" class="list-group-item">
-							<span class="badge">4</span>
-							Ilan Cohen
-						</a>
 						<a href="#" class="list-group-item">
 							<span class="badge">2</span>
 							Alex Ilyaev
@@ -437,24 +439,32 @@ console.log(strObject.str);
 							<span class="badge">2</span>
 							Amit Choukroun
 						</a>
+						<a href="#" class="list-group-item">
+							<span class="badge">4</span>
+							Ilan Cohen
+						</a>
 					</div>
 
 					<h4><small class="glyphicon glyphicon-time"></small> Month</h4>
 					<div class="list-group">
-						<span href="#" class="list-group-item disabled">
-							2015
-						</span>
-						<a href="#" class="list-group-item">
-							<span class="badge">4</span>
-							January
-						</a>
-						<span href="#" class="list-group-item disabled">
-							2014
-						</span>
-						<a href="#" class="list-group-item">
-							<span class="badge">4</span>
-							December
-						</a>
+						<div>
+							<span class="list-group-item disabled">
+								2015
+							</span>
+							<a href="#" class="list-group-item">
+								<span class="badge">4</span>
+								January
+							</a>
+						</div>
+						<div>
+							<span class="list-group-item disabled">
+								2014
+							</span>
+							<a href="#" class="list-group-item">
+								<span class="badge">4</span>
+								December
+							</a>
+						</div>
 					</div>
 				</div>
 			</aside>
@@ -479,11 +489,11 @@ console.log(strObject.str);
 	<!-- /.container -->
 
 	<!-- Libraries -->
-	<script src="lib/js/jquery.min.js"></script>
-	<script src="lib/js/bootstrap.min.js"></script>
+	<script src="../lib/js/jquery.min.js"></script>
+	<script src="../lib/js/bootstrap.min.js"></script>
 
 	<!-- App -->
-	<script src="app/app.js"></script>
+	<script src="../app/app.js"></script>
 
 </body>
 </html>
