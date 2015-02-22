@@ -7,32 +7,32 @@
 var fs = require('fs');
 
 /**
- * Create a data file to store users data
+ * Create a data file to store posts data
  * Only if it doesn't exist
  */
 
-var usersPath = 'data/users.json';
+var postsPath = 'data/posts.json';
 
-fs.readFile(usersPath, function (err, data) {
-	var users;
+fs.readFile(postsPath, function (err, data) {
+	var posts;
 
 	// File doesn't exist
 	if (err) {
-		users = {
-			'users': []
+		posts = {
+			'posts': []
 		};
 
 		// Create the file (data must be a string)
-		fs.writeFile(usersPath, JSON.stringify(users), function (err) {
+		fs.writeFile(postsPath, JSON.stringify(posts), function (err) {
 			if (err) {
 				console.log(err);
 			}
 
-			console.log('Write file successful: users.json');
+			console.log('Write file successful: posts.json');
 		});
 	}
 
 	// File already exist, do nothing
 });
 
-module.exports = usersPath;
+module.exports = postsPath;

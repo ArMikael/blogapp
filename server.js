@@ -11,7 +11,7 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 
 // Create the initial Users data file
-var usersPath = require('./modules/data');
+var postsPath = require('./modules/data');
 
 // Init a new Express app instance
 var app = express();
@@ -33,17 +33,26 @@ app.use(bodyParser.urlencoded({ extended: true }));
  * Define Routes handling
  */
 
+// GET /posts - Get All posts
+// GET /post - Get post by ID
+// POST / post - Update post by Title or Add new post
+// DELETE or POST - Delete post (use a flag on req.body)
+
 // On root, serve `public/index.html`
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
 // Handle POST request to save a new user data
-app.post('/users', function (req, res) {
+app.post('/posts', function (req, res) {
 	console.log(req.method, req.path, req.body);
 
+	var title = req.body.title;
+	var newData = req.body.data;
+	console.log(title);
+
 	// Read existing data
-	fs.readFile(usersPath, function (err, data) {
+	fs.readFile(postsPath, function (err, data) {
 		if (err) {
 			console.log(err);
 			// Tell the client there was an error by sending back `null`
@@ -52,10 +61,37 @@ app.post('/users', function (req, res) {
 
 		// Add the new user to the users data array
 		data = JSON.parse(data);
-		data.users.push(req.body);
+		var posts = data.posts;
+		var post;
+		var exists = false;
+
+		console.log(data);
+
+		for (var i = 0; i < posts.length; i++) {
+			post = posts[i];
+
+			console.log(post.title);
+
+			// If post is found
+			if (post.title === title) {
+				exists = true;
+
+				// Merge the contents
+				for (var key in newData) {
+					post[key] = newData[key];
+				}
+
+				console.log(data[i]);
+			}
+		}
+
+		// if (!exists) {
+		// 	// Validate data
+		// 	posts.push(newData);
+		// }
 
 		// Write the new data back to the file
-		fs.writeFile(usersPath, JSON.stringify(data), function () {
+		fs.writeFile(postsPath, JSON.stringify(data), function () {
 			// Status 201 means "Request fulfilled, and a resource was created"
 			res.status(201);
 			// Send back the same data we received (best practice)
@@ -65,9 +101,9 @@ app.post('/users', function (req, res) {
 });
 
 // Handle GET request to get all users data
-app.get('/users', function (req, res) {
+app.get('/posts', function (req, res) {
 	// Get all users data
-	fs.readFile(usersPath, function (err, data) {
+	fs.readFile(postsPath, function (err, data) {
 		if (err) {
 			console.log(err);
 			// Tell the client there was an error by sending back `null`
