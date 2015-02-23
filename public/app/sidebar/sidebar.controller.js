@@ -121,12 +121,5 @@
 				$location.search('search', query);
 			};
 
-			// var queryParams = $location.search();
-			// console.log('queryParams', queryParams);
-
-			// if (queryParams.search) {
-			// 	return $filter('filter')(postsData, queryParams.search);
-			// }
-
 	}]);
 }());

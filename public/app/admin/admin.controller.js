@@ -19,21 +19,9 @@
 					$scope.postsData = $filter('filter')(data.posts);
 				}
 
-				// 		postsService.success(function(data,status){
-				// 			$scope.postsData = data.posts;
-				// 			var urlParam = $location.search();
+				// Filtering by tags
 
-				// 			// if url has a parameter
-				// 			if(Object.keys(urlParam).length>0){
-				// 				var postsParam = [];
 
-				// 				// initialize postsParam with post accordingly to the parameter
-				// 				utils.addPostsByParam(urlParam,$scope.postsData,postsParam);
-
-				// 				if(postsParam.length>0){
-				// 					$scope.postsData = postsParam;
-				// 				}
-				// 			}
 
 			})
 			.error(function (data, status){
