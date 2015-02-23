@@ -12,6 +12,7 @@
 
 	app.filter('limitFromTo', function() {
 	    return function (input, index) {
+	    	console.log('input filters.js', input);
 	    	// Slicing 3 posts from provided start point (index)
        		return input.slice(index, index + 3);
 	    };

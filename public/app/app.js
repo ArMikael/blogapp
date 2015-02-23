@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 
-	var app = angular.module('BlogApp', ['ngRoute']);
+	var app = angular.module('BlogApp', ['ngRoute', 'ngSanitize']);
 
 	app.config(['$routeProvider', function ($routeProvider) {
 		$routeProvider
@@ -42,13 +42,5 @@
 			.otherwise({
 				redirectTo : '/'
 			})
-			// .when('/:author', {
-			// 	templateUrl : 'app/posts/authors.view.html',
-			// 	controller : 'PostsCtrl'
-			// })
-			// .when('/:tag', {
-			// 	templateUrl : 'app/posts/tags.view.html',
-			// 	controller : 'PostsCtrl'
-			// })
 	}]);
 }());
