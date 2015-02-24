@@ -22,7 +22,7 @@
 		<h3>Filter Posts</h3>
 
 		<div class="list-group">
-			<a href="#/posts" class="list-group-item" ng-click="sidebar.setFilter(1)"
+			<a ng-href="#{{ path }}" class="list-group-item" ng-click="sidebar.setFilter(1)"
 			ng-class="{active: sidebar.checkFilter(1)}">
 				<span class="badge">{{postsData.length}}</span>
 				Show All Posts
@@ -31,7 +31,7 @@
 
 		<h4><small class="glyphicon glyphicon-tag"></small> Category</h4>
 		<div class="list-group">
-			<a href="#/posts?category={{tag.name | lowercase}}" class="list-group-item"
+			<a ng-href="#{{ path }}?category={{tag.name | lowercase}}" class="list-group-item"
 			ng-repeat="tag in tags" ng-click="sidebar.setFilter(tag.name)"
 			ng-class="{active: sidebar.checkFilter(tag.name)}">
 				<span class="badge" >
@@ -43,7 +43,7 @@
 
 		<h4><small class="glyphicon glyphicon-user"></small> Author</h4>
 		<div class="list-group">
-			<a href="#/posts?author={{author.name | lowercase | replaceSpaces}}"
+			<a ng-href="#{{ path }}?author={{author.name | lowercase | replaceSpaces}}"
 			class="list-group-item" ng-repeat="author in authors"
 			ng-click="sidebar.setFilter(author.name)"
 			ng-class="{active: sidebar.checkFilter(author.name)}">
@@ -58,7 +58,7 @@
 				<span href="#" class="list-group-item disabled">
 					{{year.name}}
 				</span>
-				<a href="#/posts?month={{date.name | date: 'MMM-yyyy' | lowercase |
+				<a ng-href="#{{ path }}?month={{date.name | date: 'MMM-yyyy' | lowercase |
 				replaceSpaces}}" class="list-group-item" ng-repeat="date in dates"
 				ng-click="sidebar.setFilter(date.name)"
 				ng-class="{active: sidebar.checkFilter(date.name)}">

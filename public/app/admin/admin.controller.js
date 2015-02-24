@@ -10,18 +10,11 @@
 				$scope.postsData = data.posts;
 				console.log('$scope.postsData', $scope.postsData);
 
-				var filter = $location.search();
-				console.log('filter', urlParam);
-
-				if (filter !== -1) {
-					console.log('filter', filter);
-
-					$scope.postsData = $filter('filter')(data.posts);
-				}
-
-				// Filtering by tags
-
-
+				// Filtering posts titles by sidebar tags
+				var filteredPosts;
+				filteredPosts = $filter('sidebarFilter')(data.posts);
+				$scope.postsData = filteredPosts;
+				console.log('Filtered postsData', $scope.postsData);
 
 			})
 			.error(function (data, status){

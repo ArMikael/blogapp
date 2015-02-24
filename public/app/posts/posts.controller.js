@@ -20,6 +20,7 @@
 					$scope.postsData = data.posts;
 					console.log('$scope.postsData', $scope.postsData);
 
+						// Filtering posts by sidebar filters
 						var filteredPosts;
 						filteredPosts = $filter('sidebarFilter')(data.posts);
 						$scope.postsData = filteredPosts;

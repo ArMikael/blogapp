@@ -7,10 +7,13 @@
 		function ($scope, $routeParams, $location, $filter, dataService) {
 
 			// Adding Active class to current filter
-
 			this.setFilter = function (activeFilter) {
 				this.filter = activeFilter;
-				console.log('set filter', activeFilter);
+
+				// Checking url path of the page to handle filters on Posts and Admin pages
+				$scope.path = $location.path();
+
+				console.log('Set filter', activeFilter);
 			};
 
 			this.checkFilter = function (ckeckedFilter) {
