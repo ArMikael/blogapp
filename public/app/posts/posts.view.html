@@ -1,0 +1,59 @@
+<!-- Blog Entries Column -->
+<section class="col-md-8">
+	<h1 class="page-header">Showing {{postsData.length}} posts</h1>
+
+	<!-- Begin Post -->
+	<article ng-repeat="post in postsData | limitFromTo : firstPost | filter : search ">
+	<!-- | limitTo: 3 | orderBy : post.date -->
+		<header>
+			<h2>
+				<a href="#/post/{{ post.title | replaceSpaces }}">{{ post.title }}</a>
+			</h2>
+
+			<p>
+				<small class="glyphicon glyphicon-user"></small>
+				by <a href="#/posts?author={{post.author | lowercase | replaceSpaces}}">
+					{{ post.author }}
+				</a>
+			</p>
+			<p>
+				<small class="glyphicon glyphicon-time"></small>
+				Posted on {{ post.date | date:'dd MMM, yyyy' }}
+			</p>
+		</header>
+
+		<!-- Post Description -->
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur quis
+		debitis suscipit assumenda unde possimus, culpa voluptatum ducimus delectus,
+		recusandae fuga eaque porro nam fugiat vel, illo reiciendis corporis quae?</p>
+		<br>
+
+		<footer class="clearfix">
+			<p class="pull-left">
+				<b>Tags:&nbsp;</b>
+				<span ng-repeat="tag in post.tags">
+					<a href="#/posts?category={{ tag | lowercase }}"
+					class="label label-default">{{ tag }}</a>
+				</span>
+			</p>
+
+			<a class="btn btn-primary pull-right" href="post.html">
+				Read More <i class="glyphicon glyphicon-chevron-right"></i>
+			</a>
+		</footer>
+	</article>
+	<hr>
+	<!-- End of Post -->
+
+
+	<!-- Pager -->
+	<ul class="pager">
+		<li class="previous">
+			<a href="#/posts?2" ng-click="olderPosts()" ng-hide="hideButton">&larr; Older</a>
+			<!-- {{pageNum + 1}} -->
+		</li>
+		<li class="next">
+			<a href ng-click="newerPosts()" ng-hide="!firstPost">Newer &rarr;</a>
+		</li>
+	</ul>
+</section>

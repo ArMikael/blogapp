@@ -1,0 +1,56 @@
+<!-- Admin - Posts List -->
+<section class="col-md-8">
+
+	<h2 class="page-header">Edit posts</h2>
+
+	<table class="table table-bordered table-hover table-striped postsTable">
+		<thead>
+			<tr>
+				<th>#</th>
+
+				<th ng-click="sort('title')">
+					Title
+					<span class="pull-right">
+						<i class="glyphicon"
+						ng-class="{'glyphicon-chevron-up' : isSortUp('title'),
+				       'glyphicon-chevron-down' : isSortDown('title')}"></i>
+					</span>
+				</th>
+
+				<th ng-click="sort('author')">
+					Author
+					<span class="pull-right">
+						<i class="glyphicon"
+						ng-class="{'glyphicon-chevron-up' : isSortUp('author'),
+				       'glyphicon-chevron-down' : isSortDown('author')}"></i>
+					</span>
+				</th>
+
+				<th ng-click="sort('date')">
+					Date
+					<span class="pull-right">
+						<i class="glyphicon"
+						ng-class="{'glyphicon-chevron-up' : isSortUp('date'),
+				       'glyphicon-chevron-down' : isSortDown('date')}"></i>
+					</span>
+				</th>
+
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr ng-repeat="post in postsData | orderBy : sortField : reverse">
+				<th scope="row">{{$index + 1}}</th>
+				<td>{{ post.title }}</td>
+				<td>{{ post.author }}</td>
+				<td>{{ post.date | date:'dd MMM, yyyy'}}</td>
+			</tr>
+		</tbody>
+
+	</table>
+
+	<footer>
+		<a class="btn btn-primary" href="#">Add New Post</a>
+	</footer>
+
+</section>
